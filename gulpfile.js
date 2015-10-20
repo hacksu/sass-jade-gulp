@@ -24,3 +24,12 @@ gulp.task('default', ['build'], function () {
     ['build']
   );
 });
+
+gulp.task('watch', function() {
+  gulp.watch(['styles/*.scss', 'templates/*.jade'], ['build']);
+});
+
+gulp.task('serve', ['watch'], serve({
+  root: ['dist'],
+  port: 3000
+}));
